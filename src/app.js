@@ -2,8 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+require("dotenv").config();
 
 const app = express();
+const SECRET_KEY = process.env.SECRET_KEY || 3000;
 
 app.use(helmet());
 app.use(cors());
@@ -19,6 +21,12 @@ app.get("/health", (req, res) => {
 app.get("/api/hello", (req, res) => {
   res.json({
     message: "Hello, world, running first ci/cd pipeline!",
+  });
+});
+
+app.get("/api/key", (req, res) => {
+  res.json({
+    message: `Your Secret Key: ${SECRET_KEY}`,
   });
 });
 
