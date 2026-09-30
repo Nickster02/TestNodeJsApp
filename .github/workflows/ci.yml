@@ -23,4 +23,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-  
+      - name: Run App
+        run: node src/server.js &
+
+      - name: Check health
+        run: curl "http://127.0.0.1:3000/health"  
+        
+      - name: Say Hello
+        run: curl "http://127.0.0.1:3000/api/hello"  
