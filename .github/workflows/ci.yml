@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: "24.21.0"
 
       - name: Install Dependencies
         run: npm ci
@@ -35,3 +35,9 @@ jobs:
 
       - name: Retrive Secret
         run: curl "http://127.0.0.1:$PORT/api/key"  
+
+      - name: Build Docker Image
+        run: docker build -t TestNodeJsApp:v1
+      
+      - name: List Docker Images
+        run: docker images
