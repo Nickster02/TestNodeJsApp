@@ -49,4 +49,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: ${{ vars.DOCKER_HUB_USERNAME }}/testnodejsapp:latest
+          tags: |
+            ${{ vars.DOCKER_HUB_USERNAME }}/testnodejsapp:${{ github.run_number }}
+            ${{ vars.DOCKER_HUB_USERNAME }}/testnodejsapp:latest
