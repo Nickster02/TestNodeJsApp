@@ -37,7 +37,7 @@ jobs:
         run: curl "http://127.0.0.1:$PORT/api/key"  
 
       - name: Build Docker Image
-        run: docker build -t TestNodeJsApp:v1 .
+        run: docker build -t testnodejsapp:v1 .
       
       - name: List Docker Images
         run: docker images
