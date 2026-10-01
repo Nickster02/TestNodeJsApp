@@ -41,3 +41,9 @@ jobs:
       
       - name: List Docker Images
         run: docker images
+
+      - name: Run Docker Container
+        run: docker run -p 80:8000 testnodejsapp:v1
+
+      - name: Check Health
+        run: curl "http://127.0.0.1:80/health"
