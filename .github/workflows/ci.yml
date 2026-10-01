@@ -44,7 +44,7 @@ jobs:
         run: docker images
 
       - name: Run Docker Container
-        run: docker run --name testnodejsapp -p $DOCKER_PORT:$PORT testnodejsapp:v1 -e SECRET_KEY=$SECRET_KEY -e PORT=$PORT
+        run: docker run -d --name testnodejsapp -p $DOCKER_PORT:$PORT -e SECRET_KEY=$SECRET_KEY -e PORT=$PORT testnodejsapp:v1
 
       - name: Check Health
         run: curl "http://127.0.0.1:$DOCKER_PORT/health"
