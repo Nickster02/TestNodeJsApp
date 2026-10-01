@@ -20,7 +20,7 @@ app.get("/health", (req, res) => {
 
 app.get("/api/hello", (req, res) => {
   res.json({
-    message: "Hello, world, new version",
+    message: "Hello, world, first app",
   });
 });
 
