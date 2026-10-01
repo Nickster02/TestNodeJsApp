@@ -5,7 +5,7 @@ const morgan = require("morgan");
 require("dotenv").config();
 
 const app = express();
-const SECRET_KEY = process.env.SECRET_KEY || 3000;
+const SECRET_KEY = process.env.SECRET_KEY;
 
 app.use(helmet());
 app.use(cors());
