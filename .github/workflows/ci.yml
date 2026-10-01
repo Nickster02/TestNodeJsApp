@@ -12,6 +12,7 @@ jobs:
     env:
       PORT: ${{ vars.PORT }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DOCKER_PORT: 80
     steps:
       - name: Clone Repo
         uses: actions/checkout@v4
@@ -43,7 +44,7 @@ jobs:
         run: docker images
 
       - name: Run Docker Container
-        run: docker run -p 80:8000 testnodejsapp:v1
+        run: docker run --name testnodejsapp -p $DOCKER_PORT:$PORT testnodejsapp:v1 -e SECRET_KEY=$SECRET_KEY -e PORT=$PORT
 
       - name: Check Health
-        run: curl "http://127.0.0.1:80/health"
+        run: curl "http://127.0.0.1:$DOCKER_PORT/health"
