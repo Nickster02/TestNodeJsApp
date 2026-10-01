@@ -20,7 +20,7 @@ app.get("/health", (req, res) => {
 
 app.get("/api/hello", (req, res) => {
   res.json({
-    message: "Hello, world, running first ci/cd pipeline!",
+    message: "Hello, world, new version",
   });
 });
 
